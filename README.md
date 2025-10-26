@@ -40,7 +40,7 @@ Take a picture, transform it into a “Wanted” poster, and join the cosmic bou
 ## 🪶 Screenshots (Preview)
 
 | Home Screen | Photo Screen | Saved Screen | Poster Example |
-|--------------|----------------||--------------|----------------|
+|--------------|----------------|--------------|----------------|
 | ![Home Screen](Star-Wanted/docs/home-screen.PNG) | ![Photo Screen](Star-Wanted/docs/photo-screen.PNG) | ![Saved Screen](Star-Wanted/docs/save-screen.PNG) | ![Wanted Poster](Star-Wanted/docs/example-save.JPG) |
 
 ---
