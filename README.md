@@ -41,7 +41,7 @@ Take a picture, transform it into a “Wanted” poster, and join the cosmic bou
 
 | Home Screen | Poster Example |
 |--------------|----------------|
-| ![Home Screen](docs/home-screen.png) | ![Photo Screen](docs/photo-screen.png) | ![Saved Screen](docs/save-screen.png) | ![Wanted Poster](docs/example-save.png) |
+| ![Home Screen](docs/home-screen.PNG) | ![Photo Screen](docs/photo-screen.PNG) | ![Saved Screen](docs/save-screen.PNG) | ![Wanted Poster](docs/example-save.PNG) |
 
 ---
 
