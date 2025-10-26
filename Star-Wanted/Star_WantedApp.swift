@@ -25,7 +25,8 @@ struct Star_WantedApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            HomeView()
+            //ContentView()
         }
         .modelContainer(sharedModelContainer)
     }

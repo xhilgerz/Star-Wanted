@@ -6,61 +6,121 @@
 //
 
 import SwiftUI
-import SwiftData
+import UIKit
 
 struct ContentView: View {
-    @Environment(\.modelContext) private var modelContext
-    @Query private var items: [Item]
-
+    @State private var showCamera = false
+    @State private var capturedImage: UIImage? = nil
+    @State private var outlawName = ""
+    @State private var reward = ""
+    
+    
     var body: some View {
-        NavigationSplitView {
-            List {
-                ForEach(items) { item in
-                    NavigationLink {
-                        Text("Item at \(item.timestamp, format: Date.FormatStyle(date: .numeric, time: .standard))")
-                    } label: {
-                        Text(item.timestamp, format: Date.FormatStyle(date: .numeric, time: .standard))
-                    }
+        VStack(spacing: 0) {
+            Spacer()
+
+            // If a photo has been taken, show the wanted poster
+            if let image = capturedImage {
+                WantedPosterView(
+                    image: image,
+                    outlawName: outlawName,
+                    reward: reward
+                )
+                .frame(width:350)
+                
+                
+                Rectangle()
+                    .fill(Color(red: 0.45, green: 0.25, blue: 0.1)) // dark wood tone
+                    .frame(height: 8) // ✅ give it visible height
+                    .frame(maxWidth: .infinity) // ✅ match poster width, not full screen
+                    .shadow(color: .black.opacity(0.4), radius: 2, x: 0, y: 2)
+                    .padding(.top, -8) // ✅ optional: makes it “touch” the poster bottom
+
+
+                Button(action: {
+                    // Take a snapshot of the poster and save to Photos
+                    let posterImage = WantedPosterView(
+                        image: image,
+                        outlawName: outlawName,
+                        reward: reward
+                    ).snapshot()
+
+                    UIImageWriteToSavedPhotosAlbum(posterImage, nil, nil, nil)
+                }) {
+                    Label("Save Poster to Photos", systemImage: "square.and.arrow.down")
+                        .font(.headline)
+                        .padding()
+                        .background(Color.brown)
+                        .foregroundColor(.white)
+                        .cornerRadius(10)
                 }
-                .onDelete(perform: deleteItems)
+                .padding(.top, 20)
+            } else {
+                // Placeholder when no photo yet
+                Rectangle()
+                    .fill(Color.gray.opacity(0.15))
+                    .frame(height: 300)
+                    .overlay(
+                        Text("No photo yet")
+                            .foregroundColor(.gray)
+                            .italic()
+                    )
+                    .padding()
             }
-#if os(macOS)
-            .navigationSplitViewColumnWidth(min: 180, ideal: 200)
-#endif
-            .toolbar {
-#if os(iOS)
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    EditButton()
-                }
-#endif
-                ToolbarItem {
-                    Button(action: addItem) {
-                        Label("Add Item", systemImage: "plus")
+
+            Spacer()
+
+            // Camera button
+            Button(action: {
+                Task {
+                        showCamera = true
+                        try? await Task.sleep(nanoseconds: 2_000_000_000)
+                        generateOutlaw()
                     }
-                }
+            }) {
+                Label("Take Wanted Photo", systemImage: "camera.fill")
+                    .font(.headline)
+                    .padding()
+                    .frame(maxWidth: .infinity)
+                    .background(Color.brown)
+                    .foregroundColor(.white)
+                    .cornerRadius(10)
+                    .padding(.horizontal)
             }
-        } detail: {
-            Text("Select an item")
+            .sheet(isPresented: $showCamera) {
+                CameraView(image: $capturedImage)
+            }
+
+            Spacer()
         }
+        .background(Color(red: 0.96, green: 0.91, blue: 0.82)) // parchment background
+        .edgesIgnoringSafeArea(.all)
     }
 
-    private func addItem() {
-        withAnimation {
-            let newItem = Item(timestamp: Date())
-            modelContext.insert(newItem)
-        }
+    // Generates random outlaw name and reward
+    func generateOutlaw() {
+        let first = ["Rusty", "Solar", "Crimson", "Cactus", "Vega", "Lunar", "Cosmic", "Iron", "Phantom"]
+        let last = ["Ranger", "Drifter", "Bandit", "Cowboy", "Wrangler", "Outlaw", "Rustler", "Marauder", "Sharp Eye","Hunter"]
+        outlawName = "\(first.randomElement()!) \(last.randomElement()!)"
+        reward = "\(Int.random(in: 1000...10000)) CREDIT REWARD"
     }
+}
 
-    private func deleteItems(offsets: IndexSet) {
-        withAnimation {
-            for index in offsets {
-                modelContext.delete(items[index])
-            }
+// MARK: - Convert any SwiftUI View into a UIImage
+extension View {
+    func snapshot() -> UIImage {
+        let controller = UIHostingController(rootView: self)
+        let view = controller.view
+
+        let targetSize = controller.view.intrinsicContentSize
+        view?.bounds = CGRect(origin: .zero, size: targetSize)
+        view?.backgroundColor = .clear
+
+        let renderer = UIGraphicsImageRenderer(size: targetSize)
+        return renderer.image { _ in
+            view?.drawHierarchy(in: controller.view.bounds, afterScreenUpdates: true)
         }
     }
 }
 
-#Preview {
-    ContentView()
-        .modelContainer(for: Item.self, inMemory: true)
-}
+

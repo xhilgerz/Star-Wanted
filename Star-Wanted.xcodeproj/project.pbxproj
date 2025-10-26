@@ -29,9 +29,22 @@
 		D754E4B72EAD8D01005F5700 /* Star-WantedUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Star-WantedUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		D754E4D32EADDE20005F5700 /* Exceptions for "Star-Wanted" folder in "Star-Wanted" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = D754E49C2EAD8D00005F5700 /* Star-Wanted */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		D754E49F2EAD8D00005F5700 /* Star-Wanted */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				D754E4D32EADDE20005F5700 /* Exceptions for "Star-Wanted" folder in "Star-Wanted" target */,
+			);
 			path = "Star-Wanted";
 			sourceTree = "<group>";
 		};
@@ -397,6 +410,10 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Star-Wanted/Info.plist";
+				INFOPLIST_KEY_LSApplicationCategoryType = "\"\"";
+				INFOPLIST_KEY_NSCameraUsageDescription = "We use your camera to take photos for your custom Wanted Poster.";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "We save your wanted poster to your photo library.";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -436,6 +453,10 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Star-Wanted/Info.plist";
+				INFOPLIST_KEY_LSApplicationCategoryType = "\"\"";
+				INFOPLIST_KEY_NSCameraUsageDescription = "We use your camera to take photos for your custom Wanted Poster.";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "We save your wanted poster to your photo library.";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
