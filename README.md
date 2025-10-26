@@ -8,21 +8,23 @@ Take a picture, transform it into a “Wanted” poster, and join the cosmic bou
 
 ## 🚀 Features
 
-- 📸 **Camera Integration**  
-  Capture a photo directly from your iPhone’s camera.
+-📸 Camera Integration
+Capture a photo directly from your iPhone’s camera.
 
-- 🖼️ **Dynamic Wanted Poster Generator**  
-  Your photo is automatically framed in a vintage-style poster with custom name and reward text.
+-🖼️ Dynamic Wanted Poster Generator
+Your photo is automatically framed in a vintage-style poster with custom name and reward text.
 
-- 🎨 **Old-West Filters & Textures**  
-  Realistic sepia tones, paper textures, and lighting effects make your poster feel authentically aged.
+-🎨 Old-West Filters & Textures
+Realistic sepia tones, paper textures, and lighting effects make your poster feel authentically aged.
 
-- 🪙 **Random Outlaw Identity System**  
-  Each photo is paired with a randomly generated outlaw name and bounty in Galactic Credits.
+-🪙 Random Outlaw Identity System
+Each photo is paired with a randomly generated outlaw name and bounty in Galactic Credits.
 
-- 🌟 **Home Screen Navigation**  
-  A glowing star button welcomes players into the Wild West of space.
+-💾 Poster Saving System
+Tap “Save Poster to Photos” to export your finished bounty poster straight into your iPhone’s photo library — proof of your intergalactic outlaw status.
 
+-🌟 Home Screen Navigation
+A glowing star button welcomes players into the Wild West of space.
 ---
 
 ## 🧑‍💻 Built With
