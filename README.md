@@ -4,7 +4,7 @@
 **Star-Wanted** is a SwiftUI iPhone app built for a hackathon project that blends the grit of the Old West with the style of outer space.  
 Take a picture, transform it into a “Wanted” poster, and join the cosmic bounty hunt! 🤠🪐
 
-![App Icon](Star-Wanted/docs/photo-screen.PNG)
+![App Icon](Star-Wanted/docs/Star-Wanted.PNG)
 
 ---
 
